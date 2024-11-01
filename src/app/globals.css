@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-slate-50;
+  }
+  body {
+    font-family: var(--body-font);
+  }
+}
+
+/* Sidebar Category Icons */
+
+.categoryicon {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('/icons/default.svg');
+
+  &.arcade {
+    background-image: url('/icons/arcade.svg');
+  }
+
+  &.atari {
+    background-image: url('/icons/arcade.svg');
+  }
+
+  &.mame-2003 {
+    background-image: url('/icons/arcade.svg');
+  }
+
+  &.nes {
+    background-image: url('/icons/arcade.svg');
+  }
+
+}

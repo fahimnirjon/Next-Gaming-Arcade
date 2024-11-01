@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id          Int        @id @default(autoincrement())
+  title       String
+  slug        String     @unique
+  description String
+  image       String
+  game_url    String
+  published   Boolean
+  created_at  DateTime   @default(now())
+  categories  Category[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  title String
+  slug  String
+  core  String
+  image String @default("default_image.png")
+  games Game[]
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  name String?
+  email String @unique
+  password String
+  role String?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
